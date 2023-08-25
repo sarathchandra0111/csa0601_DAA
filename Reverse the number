@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int reverse_number(int n) {
+    int reversed_num = 0;
+    while (n > 0) {
+        int digit = n % 10;
+        reversed_num = reversed_num * 10 + digit;
+        n /= 10;
+    }
+    return reversed_num;
+}
+
+int main() {
+    char input[20];
+    int num;
+
+    printf("Enter a number: ");
+    fgets(input, sizeof(input), stdin);
+
+    if (sscanf(input, "%d", &num) == 1) {
+        int reversed_num = reverse_number(num);
+        printf("Reversed number: %d\n", reversed_num);
+    } else {
+        printf("Illegal input\n");
+    }
+    return 0;
+    
+}
